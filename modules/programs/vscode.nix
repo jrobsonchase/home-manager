@@ -138,7 +138,7 @@ in {
         "${configFilePath}".source =
           jsonFormat.generate "vscode-user-settings" cfg.userSettings;
       })
-      (mkIf (cfg.keybindings != { })
+      (mkIf (cfg.keybindings != [ ])
         (let dropNullFields = filterAttrs (_: v: v != null);
         in {
           "${keybindingsFilePath}".source =
